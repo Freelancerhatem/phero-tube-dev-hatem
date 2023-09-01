@@ -1,14 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- tailwind/daisyUI cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>PH Youtube</title>
 </head>
+
 <body>
+    <header>
+        <section class="flex justify-between py-6 px-12">
+            <img src="./images/Logo.png" class="w-32  h-12">
+            <button class="btn">sort by views</button>
+            <button class="btn btn-warning">Blog</button>
+        </section> <hr class="mx-12">
+    </header>
     <main>
-        
+        <!-- tab -->
+        <section id="tab-container" class="flex justify-center my-5">
+            <!-- <div class="tabs tabs-boxed gap-3 justify-center">
+                <a class="tab hover:bg-red-500">All</a> 
+                <a class="tab tab-active bg-red-500 hover:bg-transparent">Music</a> 
+                <a class="tab hover:bg-red-500">Comedy</a>
+                <a class="tab hover:bg-red-500">Drawing</a>
+              </div> -->
+        </section>
+        <!-- card -->
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4" id="video-container">
+        </section>
+
     </main>
-<script src="./api.js"></script>    
+    <script src="./api.js"></script>
 </body>
+
 </html>
