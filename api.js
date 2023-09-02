@@ -1,12 +1,3 @@
-/**
- * API
-All category : - https://openapi.programming-hero.com/api/videos/categories
-
-ALL data by categoryId
-URL Format: - https://openapi.programming-hero.com/api/videos/category/${id}
-
-Example: - https://openapi.programming-hero.com/api/videos/category/1000
- */
 const dataLoad = async () => {
     const jsonData = await fetch('https://openapi.programming-hero.com/api/videos/categories');
     const data = await jsonData.json();
@@ -20,24 +11,24 @@ const TabData = (data) => {
         const newElement = document.createElement('div');
         newElement.classList = 'tabs tabs-boxed'
         newElement.innerHTML = `
-        <a class="tab  bg-red-500  text-white" onclick="handleVideoCategory(${link.category_id})">${link.category} </a>
+        <a class="tab text-gray-600  hover:bg-red-500 hover:text-white gap-6  " onclick="videoData(${link.category_id})">${link.category} </a>
         `
         tabContainer.appendChild(newElement);
 
-    })
-}
-
-const handleVideoCategory = (data) => {
-    const videoData = async () => {
+    });
+};
+    let video;
+    
+    const videoData = async (data) => {
         const videos = await fetch(`https://openapi.programming-hero.com/api/videos/category/${data}`);
-        const video = await videos.json();
-        sortVideo(video);
+        video = await videos.json();
         const videoContainer = document.getElementById('video-container');
         videoContainer.textContent = '';
-
+        sortVideo(video);
+        
         if(video.data.length>0){
             video.data.forEach(videoInfo => {
-                // console.log(video.data)
+                
                 // second to hour and minute convert
                 const container =document.getElementById('errorMsg');
                 container.textContent='';
@@ -47,7 +38,7 @@ const handleVideoCategory = (data) => {
                 const hour = videoDuration[0];
                 const minuteString = videoDuration[1];
                 const minute = minuteString?.slice(0, 2);
-                // videoinfo has id and thumbnai
+                // videoinput has id and thumbnail
                 const newVideoElement = document.createElement('div');
                 newVideoElement.classList = 'card card-compact  bg-red-100 my-10 mx-6 h-80 shadow-xl';
                 newVideoElement.innerHTML = `
@@ -90,31 +81,28 @@ const handleVideoCategory = (data) => {
            
            
 
-        }
+        };
         
-    }
-    videoData()
-}
-
-dataLoad()
-
-// sort data
-
+        
+            
+    };
+    
+videoData('1000'); 
+dataLoad();
+// sort data began
 const sortVideo=(video)=>{
-    const viewsData = video.data;
-    const array =[];
-    const asscending=array.sort();
-    console.log(asscending)
     
-    viewsData.map(videoViews=>{
+    video.data.sort((a,b)=>{
+        const videoA=parseFloat(a.others.views.split('K')[0]);
+        const videoB=parseFloat(b.others.views.split('K')[0]);
+         return videoB-videoA;
+         
         
-        const data =videoViews.others.views;
-        array.push(data.split('K')[0]);
-        
-    })
-    
-    
-    }
-    const blogButton = document.getElementById('blog').addEventListener('click',()=>{
+    });
+
+};
+// sort data end
+const blogButton = document.getElementById('blog').addEventListener('click',()=>{
         window.location.href='blog.html';
-    })
+    });
+   
