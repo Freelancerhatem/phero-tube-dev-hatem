@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- tailwind/daisyUI cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+       body{
+        font-family: 'Poppins', sans-serif;
+       } 
+    </style>
+    <title>Blogs</title>
+</head>
+
+<body class=" min-h-screen">
+    <main class=" px-5 py-6 ">
+        <div class=" my-4  px-4 py-6 bg-slate-200 rounded-lg">
+            <div class="div">
+            <h1 class="font-bold text-3xl">Discussion about <span class="text-orange-400">let,const,var</span></h1>
+            <p class="">
+                <span class="text-orange-400 font-semibold"> let,var,const</span> are keyword in javasciprt to declare variables.Let's discuss more about that..
+            </p>
+            <p class="text-xl font-semibold">var:</p>
+            <ul class="list-disc pl-4">
+                
+                <li>Variables declared with var are function-scoped or globally scoped.</li>
+                <li>Variables declared with var are hoisted.</li>
+                <li>var variables can be redeclared within the same scope.</li>
+            </ul>
+            <p class="text-xl font-semibold">let:</p>
+            <ul class="list-disc pl-4">
+                
+                <li>Variables declared with let are block-scoped.</li>
+                <li>let variables are not hoisted.</li>
+                <li>you cannot redeclare a variable using let within the same block scope.</li>
+            </ul>
+            <p class="text-xl font-semibold">let:</p>
+            <ul class="list-disc pl-4">
+                
+                <li>Variables declared with const are block-scoped.</li>
+                <li>const variables are not hoisted.</li>
+                <li>you cannot redeclare a variable using const within the same block scope.</li>
+            </ul>
+                </div>
+            
+        </div>
+        <div class="my-4  px-4 py-6 bg-slate-200 rounded-lg">
+         <h1 class="text-3xl font-semibold">Use cases of <span class="text-orange-400">null</span> and <span class="text-orange-400">undefined</span></h1>
+         <p class="text-xl font-semibold">undefined</p>
+            <ul class="list-disc pl-4">
+                
+                <li>undefined is a primitive value in JavaScript, and it typically indicates that a variable has been declared but has not been assigned a value.</li>
+                <li>It is also returned when trying to access an object property or array element that does not exist.</li>
+                <li>It is often used to check if a variable or property has been initialized or if a function has returned a value.</li>
+            </ul> 
+            <p class="text-xl font-semibold">null</p>
+            <ul class="list-disc pl-4">
+                
+                <li>null is also a primitive value in JavaScript, but it is used to explicitly indicate the absence of any object value or the lack of a value.</li>
+                <li>It is often assigned to variables or properties to represent the intentional absence of a value.</li>
+                <li>Unlike undefined, it is a value that you can assign to a variable to signify that it has no meaningful value.</li>
+            </ul>  
+        </div>
+        <div class="my-4  px-4 py-6 bg-slate-200 rounded-lg">
+            <h1 class="text-3xl font-semibold">Discuss about <span class="text-orange-400">Rest API</span> </h1>
+               <ul class="list-disc pl-4">
+                   
+                <li>Stateless: Each request from a client to a server must contain all the information needed to understand and process the request. The server should not rely on any information from previous requests. This statelessness simplifies server-side logic and makes the API more scalable.</li>
+
+                <li>Resource-Based: In a REST API, resources are the key abstractions, and each resource is uniquely identified by a URL (Uniform Resource Locator). Resources can represent entities like users, products, or any other data object. For example, /users might represent a collection of user resources, and /users/123 might represent a specific user with the ID 123.</li>
+                
+                <li>HTTP Methods: RESTful APIs use standard HTTP methods to perform CRUD (Create, Read, Update, Delete) operations on resources. The commonly used HTTP methods include:
+                
+                <span class="text-orange-400">GET:</span> Retrieve a resource or a collection of resources.
+                <span class="text-orange-400">POST:</span> Create a new resource.
+                <span class="text-orange-400">PUT:</span> Update an existing resource or create a resource if it doesn't exist.
+                <span class="text-orange-400">PATCH:</span> Partially update an existing resource.
+                <span class="text-orange-400">DELETE:</span> Remove a resource.
+                <span class="text-orange-400">Uniform Interface:</span> REST APIs have a uniform and consistent interface, meaning that they use a consistent naming convention for resources and HTTP methods. This simplifies API design and makes it easier for developers to understand and use the API.</li>
+                
+                <li>Stateless Communication: Each client request to the server should include all the necessary information, and the server should not store any client state between requests. Any session state should be managed on the client side, if needed.</li>
+                
+                <li>Representation: Resources can have multiple representations, such as JSON, XML, HTML, or others. Clients can specify their preferred representation using the Accept header in the request, and the server should respond with the requested representation.</li>
+                
+                <li>Layered System: REST APIs can be designed as a layered system, where each layer has a specific responsibility. This allows for flexibility and scalability by adding or removing layers as needed.</li>
+                
+                <li>Statelessness: REST APIs are stateless, meaning that each request from a client to the server must contain all the information needed to understand and process the request. The server should not rely on any information from previous requests. This statelessness simplifies server-side logic and makes the API more scalable.</li>
+               </ul> 
+               
+           </div>
+    </main>
+</body>
+
+</html>

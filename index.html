@@ -12,10 +12,10 @@
 
 <body>
     <header>
-        <section class="flex justify-between py-6 px-12">
-            <img src="./images/Logo.png" class="w-32  h-12">
-            <button class="btn">sort by views</button>
-            <button class="btn btn-warning">Blog</button>
+        <section class="flex flex-col md:flex-row lg:flex-row justify-between py-6 gap-2 md:gap-0 lg:gap-0 px-12">
+            <img src="./images/Logo.png" class="w-32  h-12 mx-auto md:mx-0 lg:mx-0">
+            <button class="btn" onclick="sortVideo()">sort by views</button>
+            <button href="" class="btn btn-warning" id="blog">Blog</button>
         </section> <hr class="mx-12">
     </header>
     <main>
@@ -31,6 +31,7 @@
         <!-- card -->
         <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4" id="video-container">
         </section>
+        <section id="errorMsg"></section>
 
     </main>
     <script src="./api.js"></script>
