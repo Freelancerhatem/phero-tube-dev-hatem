@@ -17,17 +17,25 @@ const TabData = (data) => {
 
     });
 };
-    let video;
     
+    let sortData
     const videoData = async (data) => {
         const videos = await fetch(`https://openapi.programming-hero.com/api/videos/category/${data}`);
-        video = await videos.json();
+        const video = await videos.json();
+        sortData=video.data;
+        displayData(video);
+        
+        
+        //    return video
+    
+    };
+    const displayData=(video)=>{
         const videoContainer = document.getElementById('video-container');
         videoContainer.textContent = '';
-        sortVideo(video);
         
-        if(video.data.length>0){
-            video.data.forEach(videoInfo => {
+        
+        if(sortData.length>0){
+            sortData.forEach(videoInfo => {
                 
                 // second to hour and minute convert
                 const container =document.getElementById('errorMsg');
@@ -66,7 +74,9 @@ const TabData = (data) => {
                         `
                 videoContainer.appendChild(newVideoElement);
                
-             })
+             });
+        
+
         }
         else{
            const container =document.getElementById('errorMsg');
@@ -82,24 +92,29 @@ const TabData = (data) => {
            
 
         };
-        
-        
-            
-    };
-    
+    }
+
 videoData('1000'); 
 dataLoad();
 // sort data began
-const sortVideo=(video)=>{
+const sortVideo=()=>{
+    console.log(sortData);
     
-    video.data.sort((a,b)=>{
-        const videoA=parseFloat(a.others.views.split('K')[0]);
-        const videoB=parseFloat(b.others.views.split('K')[0]);
-         return videoB-videoA;
+    
+        sortData.sort((a,b)=>{
+        // const videoA=parseFloat(a.others.views.split('K')[0]);
+        // const videoB=parseFloat(b.others.views.split('K')[0]);
+         return parseFloat(b.others.views)-parseFloat(a.others.views)
          
         
     });
+    
+    displayData(sortData);
+    
+    
 
+        
+    
 };
 // sort data end
 const blogButton = document.getElementById('blog').addEventListener('click',()=>{
